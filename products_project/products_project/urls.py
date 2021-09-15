@@ -22,6 +22,7 @@ from . import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('product/', include('product.urls')),
+    path('api-auth/', include('rest_framework.urls'))
 ]
 
 urlpatterns += static(settings.IMAGE_URL, document_root=settings.IMAGE_ROOT)
