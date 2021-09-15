@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from . import settings
 
 #path(route, view, kwargs, name)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('product/', include('product.urls')),
 ]
+
+urlpatterns += static(settings.IMAGE_URL, document_root=settings.IMAGE_ROOT)
