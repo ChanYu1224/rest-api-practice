@@ -1,1 +1,0 @@
-### Djangoを使ったREST APIの練習
