@@ -8,15 +8,13 @@
 
 ## Use Case
 リポジトリのクローン
-
 ```bash=
 git clone https://github.com/ChanYu1224/rest_practice.git
 ```
 
 環境構築
-
 ```bash=
-Python -m venv django_venv
+python -m venv django_venv
 source django_venv/bin/activate
 pip install -r requirements.txt
 ```
