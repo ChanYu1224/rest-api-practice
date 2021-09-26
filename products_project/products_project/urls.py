@@ -22,7 +22,7 @@ from product.urls import router as product_router
 #path(route, view, kwargs, name)
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('product/', include('product.urls')),
+    path('', include('product.urls')),
     path('api/', include(product_router.urls)),
 ]
 

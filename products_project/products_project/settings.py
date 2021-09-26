@@ -130,3 +130,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 IMAGE_ROOT = os.path.join(BASE_DIR, 'img')
 IMAGE_URL = '/img/'
+
+APPEND_SLASH=False

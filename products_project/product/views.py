@@ -1,8 +1,8 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
-from rest_framework import viewsets
 from .models import Product
 from .seriallizer import ProductSerializer
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.response import Response
 
 # Create your views here.
 def index(request):
@@ -10,23 +10,47 @@ def index(request):
     context = {
         'latest_product_list': latest_product_list,
     }
-    
     return render(request, 'product/index.html', context)
 
 
 def detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-    context = {
+    context = { 
         'product': product,
     }
-    
     return render(request, 'product/detail.html', context)
 
 
-def image(request, product_id):
-    return HttpResponse("You're looking at the image of product "+ str(product_id))
-
-
-class ProductViewSet(viewsets.ModelViewSet):
+class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+
+    def get(self, request, format=None):
+        return Response({
+            'success':'success', 
+            'message':'success'
+            })
+    
+    def post(self, request):
+        if self.serializer_class.is_valid():
+            return Response({
+                'success':'success', 
+                'message':'success'
+                })
+        else:
+            return Response({
+                'success':'failure',
+                'message':'bad request'
+            })
+    
+    def put(self, request, pk=None):
+        return Response({
+            'success':'success', 
+            'message':'success'
+        })
+
+    def delete(self, request, pk=None):
+        return Response({
+            'success':'success', 
+            'message':'success'
+        })

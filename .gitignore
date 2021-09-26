@@ -1,0 +1,5 @@
+/django_venv/
+/products_project/db.sqlite3
+/products_project/product/__pycache__/
+/products_project/products_project/__pycache__/
+/products_project/product/migrations/
