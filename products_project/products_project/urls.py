@@ -17,13 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from . import settings
-from product.urls import router as product_router
+#from product.urls import router as product_router
 
 #path(route, view, kwargs, name)
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('product.urls')),
-    path('api/', include(product_router.urls)),
+    path('api/', include('product.urls')),
+    #path('api/', include(product_router.urls)),
 ]
 
 urlpatterns += static(settings.IMAGE_URL, document_root=settings.IMAGE_ROOT)
